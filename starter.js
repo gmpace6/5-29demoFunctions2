@@ -2,8 +2,15 @@
 ////// CALCULATOR //////
 ////////////////////////
 
-// CODE HERE
+const a = (num1, num2) => num1 + num2
+const s = (num1, num2) => num1 - num2
+const m = (num1, num2) => num1 * num2
+const d = (num1, num2) => num1 / num2
 
+const calculator = (num1, num2, cb) => {
+  return cb (num1, num2)
+}
+console.log(calculator(4, 5, d))
 
 ///////////////////////
 ////// PET STORE //////
