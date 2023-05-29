@@ -61,7 +61,7 @@ const catProducts = [
     displayPrice: 10.00
   }, 
   {
-    name: 'straching post',
+    name: 'scratching post',
     colors: ['tan'],
     category: 2,
     inventory: 40,
@@ -70,11 +70,55 @@ const catProducts = [
   }
 ]
 
-// CODE HERE
+const applyPercentDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice * (1 - discount)
+}
+
+const applyFlatRateDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice - discount
+}
+
+const applyDiscounts = (arr, cb, discount) => {
+  arr.forEach(product => {
+    cb(product, discount)
+  })
+}
+applyDiscounts(dogProducts, applyPercentDiscount, .1)
+console.log(dogProducts)
+
+applyDiscounts(catProducts, applyFlatRateDiscount, .5)
+console.log(catProducts)
 
 
 ////////////////////////
 ////// SANDWICHES //////
 ////////////////////////
 
-// CODE HERE
+function makeSandwich(bread) {
+  return function(ingredients) {
+    let order = `You ordered a ${bread} sandwich with: `
+
+    for(let i = 0; i < ingredients.length; i++) {
+      if(i === ingredients.length - 1 && i != 0) {
+        order += `and ${ingredients[i]}.`
+      }else if (ingredients.length === 1) {
+        order += `${ingredients[i]} `
+      }else {
+        order += `${ingredients[i]}, `
+      }
+    }
+    return order
+  }
+}
+
+const makeWheatSandwich = makeSandwich('wheat')
+const makeRyeSandwich = makeSandwich('rye')
+const makeWhiteSandwich = makeSandwich('white bread')
+const makeGarlicBreadSandwich = makeSandwich('garlic bread')
+
+console.log(makeRyeSandwich(['corned beef', 'swiss', 'tomato', 'sauerkraut']))
+console.log(makeGarlicBreadSandwich(['meatballs', 'mozzarella', 'marinara', 'stewed tomatoes']))
+console.log(makeWhiteSandwich(['peanut butter', 'jelly']))
+
+
+
