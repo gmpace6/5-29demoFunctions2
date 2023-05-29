@@ -120,5 +120,51 @@ console.log(makeRyeSandwich(['corned beef', 'swiss', 'tomato', 'sauerkraut']))
 console.log(makeGarlicBreadSandwich(['meatballs', 'mozzarella', 'marinara', 'stewed tomatoes']))
 console.log(makeWhiteSandwich(['peanut butter', 'jelly']))
 
+const lotr = ['biLbO BaGGINs', 'leGOlAS', 'gAndAlf tHE grEY']
 
+const copyArrAndChange = (arr, cb) => {
+  let result = []
+  for(let i = 0; i < arr.length; i++) {
+    let newValue = cb(arr[i])
+    result.push(newValue)
+  }
+  return result
+}
 
+const copyStrToCamelCase = str => {
+  const splitStr = str.split(' ')
+  let camelCaseStr = ''
+  for (let x = 0; x < splitStr.length; x++) {
+    let word = splitStr[x]
+    word = word.toLowerCase()
+    if (x !== 0) {
+      word = word.charAt(0).toUpperCase() + word.slice(1)
+    }
+    camelCaseStr += word
+  }
+  return camelCaseStr
+}
+console.log(copyArrAndChange(lotr, copyStrToCamelCase))
+
+const copyStrToSnakeCase = str => {
+  str = str.toLowerCase()
+  const splitStr = str.split(' ')
+  const snakeCaseStr = splitStr.join('_')
+  return snakeCaseStr
+}
+console.log(copyArrAndChange(lotr, copyStrToSnakeCase))
+
+const colors = ['red', 'blue', 'yellow', 'green', 'orange']
+const mappedColors = colors.map(function(){
+  return 'pink'
+})
+console.log(mappedColors)
+
+const mappedColors1 = colors.map(() => 'pink')
+console.log(mappedColors1)
+
+const formalNames = ['Bernard', 'Elizabeth', 'Conrad', 'Mary Margaret']
+
+const formalGreeting = names => {
+  
+}
