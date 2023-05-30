@@ -166,5 +166,6 @@ console.log(mappedColors1)
 const formalNames = ['Bernard', 'Elizabeth', 'Conrad', 'Mary Margaret']
 
 const formalGreeting = names => {
-  
+  return names.map((name) => `Hello, ${name}`)
 }
+console.log(formalGreeting(formalNames))
