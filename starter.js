@@ -169,3 +169,50 @@ const formalGreeting = names => {
   return names.map((name) => `Hello, ${name}`)
 }
 console.log(formalGreeting(formalNames))
+
+
+const places = ['Albany', 'New York', 'Auburn']
+
+const placesThatStartWithA = places.filter(city => city[0] === "A")
+console.log(placesThatStartWithA)
+
+let jobs = [
+  {receptionist: "James"},
+  {programmer: "Steve"},
+  {designer: "Alicia"},
+]
+
+const identifier = arr => {
+  const filteredArr = arr.filter(job => job.programmer)
+  return filteredArr[0]
+}
+console.log(identifier(jobs))
+
+
+const numsToReduce = [43, 7, 24, 79, 290]
+
+const productOfArray = numbers => {
+  return numbers.reduce((acc, curr) => acc * curr)
+}
+console.log(productOfArray(numsToReduce))
+
+
+const budget = 2000
+
+const expenses = [
+  {
+    tile: 'rent',
+    amount: 1000
+  },
+  {
+    title: 'car payment',
+    amount: 250
+  },
+  {
+    title: 'food',
+    amount: 300
+  },
+]
+
+const remaining = expenses.reduce((acc, curr) => acc - curr.amount, budget)
+console.log(remaining)
